@@ -32,9 +32,9 @@ const options = {
   banner: {
     js:
       Object.entries(metaComment).reduce(
-        (acc, [key, value]) => `${acc}\n/* @${key} ${value}`,
+        (acc, [key, value]) => `${acc}\n * @${key} ${value}`,
         '/**'
-      ) + '\n*/',
+      ) + '\n */\n',
   },
 };
 
