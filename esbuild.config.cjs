@@ -1,15 +1,26 @@
 const { build } = require('esbuild');
+// const sassPlugin = require('esbuild-plugin-sass');
+const cssModulePlugin = require('esbuild-css-modules-plugin');
 const packageJson = require('./package.json');
 const { nodeExternalsPlugin } = require('esbuild-node-externals');
 
-const {
+const { name, version, description, author, betterdiscord, homepage } =
+  packageJson;
+
+const metaComment = {
   name,
-  version,
+  version: version ?? '0.0.1',
   description,
-  author,
-  betterdiscord,
-  homepage
-} = packageJson;
+  author: author?.name ?? author ?? undefined,
+  authorLink: author.url ?? homepage ?? undefined,
+  authorId: betterdiscord?.discord_snowflake,
+  updateUrl: betterdiscord?.update_url,
+  website: betterdiscord?.website,
+  source: betterdiscord?.source,
+  invite: betterdiscord?.invite,
+  donate: betterdiscord?.donate,
+  patreon: betterdiscord?.patreon,
+};
 
 const options = {
   entryPoints: ['./src/DiscordPlugin.ts'],
@@ -19,26 +30,24 @@ const options = {
   format: 'cjs',
   platform: 'neutral',
   sourcemap: false,
-  plugins: [nodeExternalsPlugin()],
+  plugins: [
+    nodeExternalsPlugin(),
+    // sassPlugin(),
+    cssModulePlugin({
+      inject: true,
+    }),
+  ],
   banner: {
-    js: `/**
-  * @name ${name}
-  * @version ${version ?? '0.0.1'}
-  * @description ${description || 'Plugin description'}
-  * @author ${author.name ?? author ?? 'Someone'}
-  * @authorLink ${author.url ?? homepage ?? ''}
-  * @authorId ${betterdiscord.discord_snowflake ?? ''}
-  * @updateUrl ${betterdiscord?.update_url ?? ''}
-  * @website ${author.url ?? homepage ?? ''}
-  * @source ${betterdiscord?.source_url ?? ''}
-  * @invite ${betterdiscord?.invite ?? ''}
-  * @donate ${betterdiscord?.donate ?? ''}
-  * @patreon ${betterdiscord?.patreon ?? ''}
-  */`
-  }
+    js:
+      Object.entries(metaComment).reduce(
+        (acc, [key, value]) => `${acc}\n/* @${key} ${value}`,
+        '/**'
+      ) + '\n*/',
+  },
 };
 
 build(options).catch((err) => {
+  // eslint-disable-next-line no-console
   console.warn(err);
-  process.exit(1)
+  process.exit(1);
 });

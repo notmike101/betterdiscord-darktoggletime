@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Template for BetterDiscord plugins using TypeScript",
   "scripts": {
-    "build": "node esbuild.config.cjs"
+    "build": "node esbuild.config.cjs",
+    "lint": "eslint ./src --ext .ts"
   },
   "author": {
     "name": "Mike Orozco",
@@ -20,11 +21,22 @@
     "patreon": "",
     "discord_snowflake": ""
   },
-  "devDependencies": {
+  "dependencies": {
+    "axios": "^0.21.1",
     "esbuild": "^0.12.19",
     "esbuild-node-externals": "^1.3.0",
+    "esbuild-plugin-sass": "^0.6.0",
     "ts-loader": "^9.2.5",
     "typescript": "^4.3.5"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.29.1",
+    "@typescript-eslint/parser": "^4.29.1",
+    "esbuild-css-modules-plugin": "^1.1.0",
+    "eslint-config-airbnb-typescript": "^12.3.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "prettier": "^2.3.2"
   },
   "volta": {
     "node": "16.1.0",
