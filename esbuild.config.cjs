@@ -1,10 +1,8 @@
 const { build } = require('esbuild');
-// const sassPlugin = require('esbuild-plugin-sass');
-const cssModulePlugin = require('esbuild-css-modules-plugin');
 const packageJson = require('./package.json');
 const { nodeExternalsPlugin } = require('esbuild-node-externals');
 
-const { name, version, description, author, betterdiscord, homepage } =
+const { main, name, version, description, author, betterdiscord, homepage } =
   packageJson;
 
 const metaComment = {
@@ -23,20 +21,14 @@ const metaComment = {
 };
 
 const options = {
-  entryPoints: ['./src/DiscordPlugin.ts'],
-  outfile: `dist/${name}-${author.name}.plugin.js`,
+  entryPoints: [main],
+  outfile: `dist/${name}.plugin.js`,
   bundle: true,
   minify: false,
   format: 'cjs',
   platform: 'neutral',
   sourcemap: false,
-  plugins: [
-    nodeExternalsPlugin(),
-    // sassPlugin(),
-    cssModulePlugin({
-      inject: true,
-    }),
-  ],
+  plugins: [nodeExternalsPlugin()],
   banner: {
     js:
       Object.entries(metaComment).reduce(

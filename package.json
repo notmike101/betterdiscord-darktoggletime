@@ -6,6 +6,7 @@
     "build": "node esbuild.config.cjs",
     "lint": "eslint ./src --ext .ts"
   },
+  "main": "./src/DiscordPlugin.ts",
   "author": {
     "name": "Mike Orozco",
     "email": "me@mikeorozco.dev",
