@@ -1,6 +1,5 @@
 const { build } = require('esbuild');
 const packageJson = require('./package.json');
-const { nodeExternalsPlugin } = require('esbuild-node-externals');
 
 const { main, name, version, description, author, betterdiscord, homepage } =
   packageJson;
@@ -19,6 +18,11 @@ const metaComment = {
   donate: betterdiscord?.donate,
   patreon: betterdiscord?.patreon,
 };
+Object.keys(metaComment).forEach((key) => {
+  if (metaComment[key] === undefined) {
+    delete metaComment[key];
+  }
+});
 
 const options = {
   entryPoints: [main],
@@ -26,9 +30,8 @@ const options = {
   bundle: true,
   minify: false,
   format: 'cjs',
-  platform: 'neutral',
+  platform: 'node',
   sourcemap: false,
-  plugins: [nodeExternalsPlugin()],
   banner: {
     js:
       Object.entries(metaComment).reduce(

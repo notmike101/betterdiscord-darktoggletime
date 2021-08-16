@@ -1,3 +1,6 @@
+// eslint-disable-next-line no-unused-vars
+import { BdApi } from 'bandagedbd__bdapi';
+
 class DiscordPlugin {
   public getName() {
     return 'Discord Plugin';

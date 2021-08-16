@@ -15,14 +15,16 @@
   "license": "ISC",
   "type": "module",
   "betterdiscord": {
+    "discord_snowflake": "",
     "update_url": "",
-    "source_url": "",
+    "website": "",
+    "source": "",
     "invite": "",
     "donate": "",
-    "patreon": "",
-    "discord_snowflake": ""
+    "patreon": ""
   },
   "dependencies": {
+    "@types/bandagedbd__bdapi": "^0.3.1",
     "axios": "^0.21.1",
     "esbuild": "^0.12.19",
     "esbuild-node-externals": "^1.3.0",
