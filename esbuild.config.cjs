@@ -1,5 +1,7 @@
 const { build } = require('esbuild');
 const packageJson = require('./package.json');
+const inlineImportPlugin = require('esbuild-plugin-inline-import');
+const { sassPlugin } = require('esbuild-sass-plugin');
 
 const { main, name, version, description, author, betterdiscord, homepage } =
   packageJson;
@@ -24,6 +26,15 @@ Object.keys(metaComment).forEach((key) => {
   }
 });
 
+const bdApiIgnore = {
+  name: 'bdapi-ignore',
+  setup(build) {
+    build.onResolve({ filter: /bandagedbd__bdapi/ }, (args) => {
+      return null;
+    });
+  },
+};
+
 const options = {
   entryPoints: [main],
   outfile: `dist/${name}.plugin.js`,
@@ -32,6 +43,13 @@ const options = {
   format: 'cjs',
   platform: 'node',
   sourcemap: false,
+  plugins: [
+    inlineImportPlugin(),
+    sassPlugin({
+      type: 'css-text',
+    }),
+    bdApiIgnore,
+  ],
   banner: {
     js:
       Object.entries(metaComment).reduce(

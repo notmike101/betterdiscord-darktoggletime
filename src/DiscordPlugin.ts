@@ -1,9 +1,24 @@
-// eslint-disable-next-line no-unused-vars
-import { BdApi } from 'bandagedbd__bdapi';
+import { ExtendedWindow } from './ExtendedWindowInterface';
+
+import globalCSS from './styles/global.scss';
+import settingsPanelHtml from 'inline:./settingsPanel.html';
+import settingsPanelCss from './styles/SettingsPanel.scss';
+
+declare let window: ExtendedWindow;
+
+const BdApi = window.BdApi || {};
 
 class DiscordPlugin {
   public getName() {
     return 'Discord Plugin';
+  }
+
+  public getSettingsPanel(): Element {
+    const template = document.createElement('template');
+
+    template.innerHTML = settingsPanelHtml;
+
+    return template.content.firstElementChild;
   }
 
   public load() {
