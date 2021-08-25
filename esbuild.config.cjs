@@ -50,6 +50,7 @@ const options = {
     }),
     bdApiIgnore,
   ],
+  external: ['@bandagedbd/bdapi'],
   banner: {
     js:
       Object.entries(metaComment).reduce(
