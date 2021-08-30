@@ -1,6 +1,10 @@
+import { ExtendedWindow } from './ExtendedWindowInterface';
+
 import globalCSS from './styles/global.scss';
-import settingsPanelHtml from 'inline:./settingsPanel.html';
+import settingsPanelHtml from 'inline:./templates/SettingsPanel.html';
 import settingsPanelCss from './styles/SettingsPanel.scss';
+
+declare const window: ExtendedWindow;
 
 const BdApi = window.BdApi || {};
 

@@ -5,7 +5,7 @@
   "scripts": {
     "build": "node esbuild.config.cjs",
     "lint": "eslint ./src --ext .ts",
-    "install-plugin": "node --experimental-json-modules install.js"
+    "install": "node --experimental-json-modules install.js"
   },
   "main": "./src/DiscordPlugin.ts",
   "author": {
