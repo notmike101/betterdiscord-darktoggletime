@@ -1,12 +1,10 @@
-import { ExtendedWindow } from './ExtendedWindowInterface';
+import { BdApi as BdApiNamespace } from './bdapi';
 
 import globalCSS from './styles/global.scss';
 import settingsPanelHtml from 'inline:./templates/SettingsPanel.html';
 import settingsPanelCss from './styles/SettingsPanel.scss';
 
-declare const window: ExtendedWindow;
-
-const BdApi = window.BdApi || {};
+const BdApi: typeof BdApiNamespace = (window as any).BdApi;
 
 class DiscordPlugin {
   public getName() {

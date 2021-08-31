@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Template for BetterDiscord plugins using TypeScript",
   "scripts": {
-    "build": "node esbuild.config.cjs",
+    "build": "nodemon --watch src/ --exec node esbuild.config.cjs -e js,ts,scss,css,html",
     "lint": "eslint ./src --ext .ts",
     "install": "node --experimental-json-modules install.js"
   },
@@ -25,7 +25,6 @@
     "patreon": ""
   },
   "dependencies": {
-    "axios": "^0.21.1",
     "esbuild": "^0.12.19",
     "esbuild-plugin-inline-import": "^1.0.1",
     "esbuild-sass-plugin": "^1.5.1",
@@ -33,13 +32,15 @@
     "typescript": "^4.3.5"
   },
   "devDependencies": {
-    "@types/bandagedbd__bdapi": "^0.3.1",
     "@types/node": "^16.7.1",
+    "@types/react": "^17.0.19",
+    "@types/react-dom": "^17.0.9",
     "@typescript-eslint/eslint-plugin": "^4.29.1",
     "@typescript-eslint/parser": "^4.29.1",
     "eslint-config-airbnb-typescript": "^12.3.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
+    "nodemon": "^2.0.12",
     "prettier": "^2.3.2"
   },
   "volta": {

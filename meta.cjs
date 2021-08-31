@@ -1,5 +1,6 @@
 const {
   name,
+  main,
   version,
   description,
   author,
@@ -28,8 +29,12 @@ Object.keys(metaComment).forEach((key) => {
   }
 });
 
-module.exports =
-  Object.entries(metaComment).reduce(
-    (acc, [key, value]) => `${acc}\n * @${key} ${value}`,
-    '/**'
-  ) + '\n */\n';
+module.exports = {
+  meta:
+    Object.entries(metaComment).reduce(
+      (acc, [key, value]) => `${acc}\n * @${key} ${value}`,
+      '/**'
+    ) + '\n */\n',
+  packageName: name,
+  packageMain: main,
+};
