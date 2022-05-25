@@ -1,50 +1,25 @@
 {
-  "name": "betterdiscord-typescript-plugin-template",
+  "name": "betterdiscord-plugin",
   "version": "1.0.0",
-  "description": "Template for BetterDiscord plugins using TypeScript",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "build": "nodemon --watch src/ --exec node esbuild.config.cjs -e js,ts,scss,css,html",
-    "lint": "eslint ./src --ext .ts",
-    "install": "node --experimental-json-modules install.js"
+    "build": "node ./scripts/build.mjs",
+    "watch": "node ./scripts/build.mjs --watch",
+    "install-plugin": "node --experimental-json-modules ./scripts/install.mjs"
   },
-  "main": "./src/DiscordPlugin.ts",
-  "author": {
-    "name": "Mike Orozco",
-    "email": "me@mikeorozco.dev",
-    "url": "https://mikeorozco.dev"
-  },
+  "author": "Mike Orozco",
   "license": "ISC",
-  "type": "module",
-  "betterdiscord": {
-    "discord_snowflake": "",
-    "update_url": "",
-    "website": "",
-    "source": "",
-    "invite": "",
-    "donate": "",
-    "patreon": ""
-  },
   "dependencies": {
-    "esbuild": "^0.12.19",
-    "esbuild-plugin-inline-import": "^1.0.1",
-    "esbuild-sass-plugin": "^1.5.1",
-    "ts-loader": "^9.2.5",
-    "typescript": "^4.3.5"
+    "@types/bandagedbd__bdapi": "^0.3.4",
+    "betterdiscord-plugin-updater": "^1.1.3",
+    "esbuild": "^0.14.39",
+    "esbuild-sass-plugin": "^2.2.6",
+    "sass": "^1.52.1",
+    "typescript": "^4.7.2"
   },
   "devDependencies": {
-    "@types/node": "^16.7.1",
-    "@types/react": "^17.0.19",
-    "@types/react-dom": "^17.0.9",
-    "@typescript-eslint/eslint-plugin": "^4.29.1",
-    "@typescript-eslint/parser": "^4.29.1",
-    "eslint-config-airbnb-typescript": "^12.3.1",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^3.4.0",
-    "nodemon": "^2.0.12",
-    "prettier": "^2.3.2"
-  },
-  "volta": {
-    "node": "16.1.0",
-    "npm": "7.11.2"
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
   }
 }

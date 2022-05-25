@@ -1,7 +1,6 @@
-import { BdApi } from '@bandagedbd/bdapi';
+declare module '*.scss';
+declare module 'betterdiscord/bdapi';
 
-declare global {
-  interface Window {
-    BdApi: typeof BdApi;
-  }
-}
+declare const PACKAGE_VERSION: string;
+declare const PACKAGE_DESCRIPTION: string;
+declare const BETTERDISCORD_UPDATEURL: string;

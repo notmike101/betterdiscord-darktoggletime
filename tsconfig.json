@@ -1,19 +1,17 @@
 {
   "compilerOptions": {
-    "outDir": "./dist/",
+    "outDir": "./dist",
     "sourceMap": true,
-    "noImplicitAny": true,
-    "module": "amd",
+    "noImplicitAny": false,
+    "module": "commonjs",
     "target": "ESNext",
-    "jsx": "react",
-    "allowJs": true,
+    "jsx": "react-jsx",
+    "allowJs": false,
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,    
-    "paths": {
-      "@/*": ["./src/*"],
-      "~/*": ["./*"],
-    },
+    "esModuleInterop": true
   },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
 }
