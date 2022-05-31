@@ -1,6 +1,4 @@
-import { getData, setData, injectCSS, clearCSS } from 'betterdiscord/bdapi';
-
-class Plugin {
+export class Plugin {
   public load(): void {
     console.log('loaded');
   }
@@ -17,5 +15,3 @@ class Plugin {
     return <div>SettingsPanel</div>
   }
 }
-
-export default Plugin;

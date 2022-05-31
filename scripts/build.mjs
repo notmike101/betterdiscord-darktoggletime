@@ -6,11 +6,11 @@ const packageJson = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
 
 export const metaInfo = Object.freeze({
   version: packageJson.version,
-  source: 'https://github.com/notmike101/betterdiscord-google-fonts',
+  source: 'https://github.com/plugin-repository-link',
   website: 'https://mikeorozco.dev',
   author: 'DeNial',
   donate: 'https://buymeacoffee.com/mikeorozcodev',
-  updateUrl: 'https://raw.githubusercontent.com/notmike101/betterdiscord-google-fonts/release/betterdiscord-google-fonts.plugin.js',
+  updateUrl: 'https://raw.githubusercontent.com/raw/plugin/path.js',
   authorLink: 'https://mikeorozco.dev',
   description: packageJson.description,
   name: 'GoogleFonts',
@@ -38,7 +38,7 @@ async function main() {
       BETTERDISCORD_UPDATEURL: JSON.stringify(metaInfo.updateUrl),
     },
     entryPoints: ['./src/main.tsx'],
-    outfile: './dist/betterdiscord-google-fonts.plugin.js',
+    outfile: './dist/plugin.plugin.js',
     external: ['betterdiscord/bdapi'],
     bundle: true,
     sourcemap: false,

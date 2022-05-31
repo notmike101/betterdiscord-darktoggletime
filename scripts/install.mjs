@@ -5,7 +5,7 @@ import path from 'path';
 function installWindows() {
   const appData = process.env.APPDATA;
   const pluginPath = path.join(appData, 'BetterDiscord', 'plugins');
-  const pluginName = 'betterdiscord-server-themes.plugin.js';
+  const pluginName = 'plugin.plugin.js';
   const compiledPlugin = 'dist/' + pluginName;
 
   if (!fs.existsSync(compiledPlugin)) {
