@@ -5,7 +5,7 @@
  * @website https://mikeorozco.dev
  * @author DeNial
  * @donate https://buymeacoffee.com/mikeorozcodev
- * @updateUrl https://raw.githubusercontent.com/raw/plugin/path.js
+ * @updateUrl https://raw.githubusercontent.com/notmike101/betterdiscord-darktoggletime/release/darktoggletime.plugin.js
  * @authorLink https://mikeorozco.dev
  * @description Toggles between a light and a dark theme based on your local time settings
  * @name DarkToggleTime
@@ -836,7 +836,7 @@ var DarkToggleTime = class {
     this.updater = new A({
       storagepath: import_bdapi3.Plugins.folder,
       currentVersion: "1.0.0",
-      updatePath: "https://raw.githubusercontent.com/raw/plugin/path.js"
+      updatePath: "https://raw.githubusercontent.com/notmike101/betterdiscord-darktoggletime/release/darktoggletime.plugin.js"
     });
     this.update();
     this.logger.log("Started plugin");
