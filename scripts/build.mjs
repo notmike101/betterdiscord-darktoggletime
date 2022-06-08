@@ -10,7 +10,7 @@ export const metaInfo = Object.freeze({
   website: 'https://mikeorozco.dev',
   author: 'DeNial',
   donate: 'https://buymeacoffee.com/mikeorozcodev',
-  updateUrl: 'https://raw.githubusercontent.com/raw/plugin/path.js',
+  updateUrl: 'https://raw.githubusercontent.com/notmike101/betterdiscord-darktoggletime/release/darktoggletime.plugin.js',
   authorLink: 'https://mikeorozco.dev',
   description: packageJson.description,
   name: 'DarkToggleTime',
