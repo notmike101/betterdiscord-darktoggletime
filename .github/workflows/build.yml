@@ -1,14 +1,14 @@
-name: Generate a build and push to release branch
+name: Generate a build and publish
 
 on:
   push:
-    branches:
-      - main
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+*'
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: Build and push
+    name: Build and Publish
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -19,7 +19,7 @@ jobs:
       - name: Setup NodeJS
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 18.2.0
 
       - name: Install dependencies
         run: npm ci
@@ -34,3 +34,11 @@ jobs:
           BRANCH: release
           FOLDER: dist
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create GitHub release
+        uses: marvinpinto/action-automatic-releases@latest
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          prerelease: false
+          files: |
+            dist/betterdiscord-google-fonts.plugin.js

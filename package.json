@@ -1,8 +1,8 @@
 {
-  "name": "betterdiscord-plugin",
+  "name": "betterdiscord-darktoggletime",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Toggles between a light and a dark theme based on your local time settings",
+  "main": "src/main.tsx",
   "scripts": {
     "build": "node ./scripts/build.mjs",
     "watch": "node ./scripts/build.mjs --watch",

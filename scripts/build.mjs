@@ -6,14 +6,14 @@ const packageJson = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
 
 export const metaInfo = Object.freeze({
   version: packageJson.version,
-  source: 'https://github.com/plugin-repository-link',
+  source: 'https://github.com/notmike101/betterdiscord-darktoggletime',
   website: 'https://mikeorozco.dev',
   author: 'DeNial',
   donate: 'https://buymeacoffee.com/mikeorozcodev',
   updateUrl: 'https://raw.githubusercontent.com/raw/plugin/path.js',
   authorLink: 'https://mikeorozco.dev',
   description: packageJson.description,
-  name: 'GoogleFonts',
+  name: 'DarkToggleTime',
   authorId: '142347724392497152',
 });
 
@@ -38,7 +38,7 @@ async function main() {
       BETTERDISCORD_UPDATEURL: JSON.stringify(metaInfo.updateUrl),
     },
     entryPoints: ['./src/main.tsx'],
-    outfile: './dist/plugin.plugin.js',
+    outfile: './dist/darktoggletime.plugin.js',
     external: ['betterdiscord/bdapi'],
     bundle: true,
     sourcemap: false,
